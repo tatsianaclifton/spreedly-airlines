@@ -1,6 +1,6 @@
-# Instructions to start applications
+## Instructions to start applications
 
-## API
+### API
 
 1. Install node if it is not installed from https://nodejs.org/en/download/. You can check if installed already with command node -v.
 2. Create credentials.env file with 
@@ -15,12 +15,12 @@ It will automatically restart if code changes are detected.
 To start in production mode run
 npm run start
 
-## CLIENT 
+### UI
 
 npm install
 npm start
 
-# NOTES
+## Notes
 1. It wasn't clear if a test gateway is automatically added to trial account or need to add it.
 2. When key has extra characters at the end it still work. 
 3. Noticed a RedactPaymentMethod transaction, but I didn't find in the docs what it means.
