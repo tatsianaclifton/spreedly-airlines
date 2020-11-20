@@ -7,7 +7,7 @@
 GATEWAY_TOKEN={Yor gateway token}\
 ENVIROMENT_KEY={Your key}\
 ACCESS_SECRET={You secret}\
-RECEIVER_TOKEN={Your receiver token}\
+RECEIVER_TOKEN={Your receiver token}
 3. Run npm install 
 4. To start in development mode run\
 npm run dev\
