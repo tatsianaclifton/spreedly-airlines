@@ -3,27 +3,36 @@
 ### API
 
 1. Install node if it is not installed from https://nodejs.org/en/download/. You can check if installed already with command
-    node -v
+    `node -v`
 2. Create .env file with
-    GATEWAY_TOKEN={Your gateway token}
+    `GATEWAY_TOKEN={Your gateway token}
     ENVIROMENT_KEY={Your key}
     ACCESS_SECRET={Your secret}
-    RECEIVER_TOKEN={Your receiver token}
-3. Run npm install 
-4. To start in development mode run
+    RECEIVER_TOKEN={Your receiver token}`
+3. Run 
+```bash
+    npm install
+```
+4. Automatically restart if code changes are detected sstart in development mode by running 
+```bash
     npm run dev
-    It will automatically restart if code changes are detected.
-    To start in production mode run
+```
+
+To start in production mode run
+```bash
     npm run start
+```
 
 ### UI
 
 1. Create .env.local file with
-    REACT_APP_ENVIRONMENT_KEY={Your key}
+    `REACT_APP_ENVIRONMENT_KEY={Your key}`
 
 2. Run commands
+```bash
     npm install
     npm start
+```
 
 ## Notes
 1. It wasn't clear if a test gateway was automatically added to trial account or we need to add it.
