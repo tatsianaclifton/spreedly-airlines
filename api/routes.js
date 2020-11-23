@@ -1,16 +1,16 @@
 const express = require('express');
 const axios = require('axios');
 const path = require('path');
-require('dotenv').config({ path: path.resolve(__dirname, '../api/credentials.env') });
+require('dotenv').config({ path: path.resolve(__dirname, '../api/.env') });
 
 const router = express.Router();
 
 const BASE_URL = 'https://core.spreedly.com/v1';
 const REQUEST_OPTIONS = {
     withCredentials: true,
-        auth: {
-            username: process.env.ENVIROMENT_KEY,
-            password: process.env.ACCESS_SECRET
+    auth: {
+        username: process.env.ENVIRONMENT_KEY,
+        password: process.env.ACCESS_SECRET
     }   
 };
 
@@ -28,7 +28,6 @@ router.post('/purchase', (req, res) => {
             currency_code: req.body.currencyCode
         } 
     };
-
     axios.post(url, body, REQUEST_OPTIONS)
         .then(response => {
             console.log('response', response);
@@ -60,9 +59,6 @@ router.post('/deliver', (req, res) => {
             })
         } 
     };
-
-    console.log('body', body);
-
     axios.post(url, body, REQUEST_OPTIONS)
         .then(response => {
             console.log('response', response);
@@ -80,7 +76,6 @@ router.post('/deliver', (req, res) => {
 
 router.put('/retain', (req, res) => {
     const url = `${BASE_URL}/payment_methods/${req.body.token}/retain.json`;
-
     axios.put(url, null, REQUEST_OPTIONS)
         .then(response => {
             console.log('response', response);

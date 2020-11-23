@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import axios from 'axios';
  
 const Flights = (props) => {
-    const [purchaseError, setPurchaseError] = useState();
+    const [purchaseResult, setPurchaseResult] = useState();
     const [saveCardError, setSaveCardError] = useState();
     const [token, setToken] = useState();
 
     const purchaseHandler = (flight, method) => {
         const spreedlyExpress = global.SpreedlyExpress;
-        spreedlyExpress.init("Stf2sjJUxF1Ys1Vkjmaw3pDciVa", {
+        spreedlyExpress.init(process.env.REACT_APP_ENVIRONMENT_KEY, {
             "amount": flight.price,
             "company_name": "Spreedly Airlines",
             "sidebar_top_description": "Best flights since 2006",
@@ -36,25 +36,22 @@ const Flights = (props) => {
                 }
             }
             setToken(token);
-            console.log('data', data);
             axios.post(url, data)
                 .then(response => {
-                    console.log(response.data);
-                    if(response.status !== 200) {
-                        setPurchaseError('Failed to make a purchase. Please check your data and try again.');
-                    }
+                    console.log('response', response.data);
+                    setPurchaseResult('Purchase was made.');
                 })
                 .catch(error => {
                     console.log('error', error);
-                    setPurchaseError('Failed to make a purchase.');
+                    setPurchaseResult('Failed to make a purchase. Please check your data and try again.');
                 }
             );
+            spreedlyExpress.unload();
         });
     }
 
     const saveCardHandler = () => {
         const url = "http://localhost:3004/api/retain";
-        console.log('token', token);
         const data = {
             token
         }
@@ -104,7 +101,7 @@ const Flights = (props) => {
                     </tbody>
                 </table>
             </div>
-            {<p style={{ color: 'red', margin: 'auto'}}>{purchaseError}</p>}
+            {<p style={{ color: 'red', margin: 'auto'}}>{purchaseResult}</p>}
             <div style={{width: '18rem', margin: 'auto', padding: '20px'}}>
                 <button className="btn btn-primary" onClick={saveCardHandler} disabled={!token}>
                     SAVE CREDIT CARD
