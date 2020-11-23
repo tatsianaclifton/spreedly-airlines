@@ -1,3 +1,8 @@
+The Spreedly Airlines app is a sample app to learn how to use Spreedly APIs to make purchases, 
+retain card data for future purchases and get completed transactions.
+Spreedly Express Javascript API is used to send payment data to Spreedly.
+Express was choosen because it is the simplest way to incur the least amount of PCI scope.
+
 ## Instructions to start applications
 
 ### API
