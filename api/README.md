@@ -11,12 +11,12 @@
 ```bash
     npm install
 ```
-4. To start in development mode run
+4. Automatically restart if code changes are detected sstart in development mode by running 
 ```bash
     npm run dev
 ```
-    It will automatically restart if code changes are detected.
-    To start in production mode run
+
+To start in production mode run
 ```bash
     npm run start
 ```
